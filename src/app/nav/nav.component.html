@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Dating App</a>
-  
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Matches <span class="sr-only">(current)</span></a>
@@ -10,11 +10,12 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Messages</a>
-      </li>            
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">
-      <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+
+    <form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+      <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" aria-label="Username" required [(ngModel)]="model.username" >
+      <input class="form-control mr-sm-2" type="password" name= "password" placeholder="Password" aria-label="Password" required [(ngModel)]="model.password">
+      <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
     </form>
 </nav>
